@@ -13,7 +13,6 @@ import NormalText from "components/NormalText";
 import InputField from "components/InputField";
 
 import { SharePageContainer, SharePageFormContainer } from "./sharePage.styles";
-import Header from "components/Header";
 
 const SharePage = () => {
   const checkAuthentication = useSelector(
