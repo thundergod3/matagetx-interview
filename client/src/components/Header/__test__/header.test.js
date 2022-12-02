@@ -51,28 +51,28 @@ describe("Header", () => {
     render(renderHeader());
 
     const randomNumber = Number(Math.random() * 1000000);
-    const email = `congphan${randomNumber}@gmail.com`;
+    const username = `congphan${randomNumber}`;
     const password = "12345678";
 
     const findLoginBtn = await screen.findByTestId("register-btn");
 
-    await userEvent.type(await screen.findByTestId("email-field"), email);
+    await userEvent.type(await screen.findByTestId("username-field"), username);
     await userEvent.type(await screen.findByTestId("password-field"), password);
     await userEvent.click(findLoginBtn);
 
-    await expect(await screen.findByText(`Welcome ${email}`)).toBeVisible();
+    await expect(await screen.findByText(`Welcome ${username}`)).toBeVisible();
   });
 
   test("Register with invalid account", async () => {
     render(renderHeader());
     await store.dispatch(AuthsAction.logout());
 
-    const email = "congphan@gmail.com";
+    const username = "congphan";
     const password = "12345678";
 
     const findLoginBtn = await screen.findByTestId("register-btn");
 
-    await userEvent.type(await screen.findByTestId("email-field"), email);
+    await userEvent.type(await screen.findByTestId("username-field"), username);
     await userEvent.type(await screen.findByTestId("password-field"), password);
     await userEvent.click(findLoginBtn);
 
@@ -83,12 +83,12 @@ describe("Header", () => {
     render(renderHeader());
     await store.dispatch(AuthsAction.logout());
 
-    const email = "congphan@gmail.com";
+    const username = "congphan";
     const password = "12345678";
 
     const findLoginBtn = await screen.findByTestId("login-btn");
 
-    await userEvent.type(await screen.findByTestId("email-field"), email);
+    await userEvent.type(await screen.findByTestId("username-field"), username);
     await userEvent.type(await screen.findByTestId("password-field"), password);
     await userEvent.click(findLoginBtn);
 
@@ -100,12 +100,12 @@ describe("Header", () => {
     render(renderHeader());
     await store.dispatch(AuthsAction.logout());
 
-    const email = "congphan@gmail.com";
+    const username = "congphan";
     const password = "1";
 
     const findLoginBtn = await screen.findByTestId("login-btn");
 
-    await userEvent.type(await screen.findByTestId("email-field"), email);
+    await userEvent.type(await screen.findByTestId("username-field"), username);
     await userEvent.type(await screen.findByTestId("password-field"), password);
     await userEvent.click(findLoginBtn);
 
@@ -118,12 +118,12 @@ describe("Header", () => {
     render(renderHeader());
     await store.dispatch(AuthsAction.logout());
 
-    const email = "congphan@gmail.com";
+    const username = "congphan";
     const password = "12345678";
 
     const findLoginBtn = await screen.findByTestId("login-btn");
 
-    await userEvent.type(await screen.findByTestId("email-field"), email);
+    await userEvent.type(await screen.findByTestId("username-field"), username);
     await userEvent.type(await screen.findByTestId("password-field"), password);
     await userEvent.click(findLoginBtn);
 
@@ -142,12 +142,12 @@ describe("Header", () => {
     render(renderHeader());
     await store.dispatch(AuthsAction.logout());
 
-    const email = "congphan@gmail.com";
+    const username = "congphan";
     const password = "12345678";
 
     const findLoginBtn = await screen.findByTestId("login-btn");
 
-    await userEvent.type(await screen.findByTestId("email-field"), email);
+    await userEvent.type(await screen.findByTestId("username-field"), username);
     await userEvent.type(await screen.findByTestId("password-field"), password);
     await userEvent.click(findLoginBtn);
 

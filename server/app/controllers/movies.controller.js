@@ -25,7 +25,7 @@ export const shareMovie = async (req, res) => {
     url,
     title: youtubeData?.title,
     description: youtubeData?.description,
-    sharedBy: req.user.email,
+    sharedBy: req.user.username,
   });
 
   res.status(200).json(newMovie);

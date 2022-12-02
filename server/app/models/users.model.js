@@ -11,7 +11,7 @@ const UsersModel = sequelize.define("users", {
     defaultValue: Sequelize.UUIDV4,
     primaryKey: true,
   },
-  email: {
+  username: {
     type: Sequelize.STRING,
     allowNull: false,
     unique: true,

@@ -20,11 +20,11 @@ function* getUserData() {
   }
 }
 
-function* login({ email, password, cb, cbError }) {
+function* login({ username, password, cb, cbError }) {
   const { saveToLocal } = UseLocalStorage();
 
   try {
-    const formData = { email, password };
+    const formData = { username, password };
     const { data } = yield call(AuthsService.login, { data: formData });
 
     yield saveToLocal("token", data.token);
@@ -42,11 +42,11 @@ function* login({ email, password, cb, cbError }) {
   }
 }
 
-function* register({ email, password, cb, cbError }) {
+function* register({ username, password, cb, cbError }) {
   const { saveToLocal } = UseLocalStorage();
 
   try {
-    const formData = { email, password };
+    const formData = { username, password };
     const { data } = yield call(AuthsService.register, {
       data: formData,
     });

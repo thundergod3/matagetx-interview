@@ -45,12 +45,12 @@ describe("Share Page", () => {
     render(renderHeader());
     await store.dispatch(AuthsAction.logout());
 
-    const email = "congphan@gmail.com";
+    const username = "congphan";
     const password = "12345678";
 
     const findLoginBtn = await screen.findByTestId("login-btn");
 
-    await userEvent.type(await screen.findByTestId("email-field"), email);
+    await userEvent.type(await screen.findByTestId("username-field"), username);
     await userEvent.type(await screen.findByTestId("password-field"), password);
     await userEvent.click(findLoginBtn);
 

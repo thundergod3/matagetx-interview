@@ -19,7 +19,7 @@ import {
 } from "./header.styles";
 
 const initialAuthenticationForm = {
-  email: "",
+  username: "",
   password: "",
 };
 
@@ -65,7 +65,7 @@ const Header = () => {
 
   const handleLogin = useCallback(() => {
     const handleLoginError = () => {
-      openNotificationError("Invalid email or password. Please try again");
+      openNotificationError("Invalid username or password. Please try again");
     };
 
     dispatch(
@@ -84,8 +84,8 @@ const Header = () => {
   ]);
 
   const handleRegister = useCallback(() => {
-    const handleRegisterError = () => {
-      openNotificationError("Cannot register right now. Please try again");
+    const handleRegisterError = (error) => {
+      openNotificationError(error);
     };
 
     dispatch(
@@ -107,8 +107,8 @@ const Header = () => {
   }, [dispatch, logout]);
 
   const isDisabled = useMemo(
-    () => !authenticationForm?.email || !authenticationForm?.password,
-    [authenticationForm?.email, authenticationForm?.password]
+    () => !authenticationForm?.username || !authenticationForm?.password,
+    [authenticationForm?.username, authenticationForm?.password]
   );
 
   return (
@@ -121,7 +121,7 @@ const Header = () => {
         {checkAuthentication ? (
           <>
             <Box mr="12px">
-              <NormalText text={`Welcome ${userData?.email}`} />
+              <NormalText text={`Welcome ${userData?.username}`} />
             </Box>
             <Box mr="12px">
               <Button
@@ -144,10 +144,9 @@ const Header = () => {
           <>
             <Box mr="12px">
               <InputField
-                data-testid="email-field"
-                type="email"
-                name="email"
-                placeholder="Email"
+                data-testid="username-field"
+                name="username"
+                placeholder="Username"
                 value={authenticationForm?.email}
                 onChange={handleChangeAuthenticationForm}
               />
